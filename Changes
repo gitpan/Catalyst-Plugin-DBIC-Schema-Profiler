@@ -1,5 +1,8 @@
 Revision history for Perl extension Catalyst::Plugin::DBIC::Schema::Profiler.
 
+0.02  Mon Jan 01 23:10:10 2007
+	- Add 'Catalyst-Model-DBIC-Schema' to PREREQ_PM
+
 0.01  Tue Dec 26 20:34:12 2006
 	- initial version
 	

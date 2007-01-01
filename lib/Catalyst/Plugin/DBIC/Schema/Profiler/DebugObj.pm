@@ -6,7 +6,7 @@ use warnings;
 use base qw/DBIx::Class::Storage::Statistics/;
 use Time::HiRes qw/ tv_interval gettimeofday /;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my ( $pkg, %args ) = @_;

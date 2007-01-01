@@ -1,12 +1,13 @@
 --- #YAML:1.0
 name:                Catalyst-Plugin-DBIC-Schema-Profiler
-version:             0.01
+version:             0.02
 abstract:            DBIC::Schema profiler plugin for Catalyst
 license:             ~
 generated_by:        ExtUtils::MakeMaker version 6.31
 distribution_type:   module
 requires:     
     Catalyst:                      5.7003
+    Catalyst::Model::DBIC::Schema: 0.18
     DBIx::Class:                   0.07002
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.2.html
