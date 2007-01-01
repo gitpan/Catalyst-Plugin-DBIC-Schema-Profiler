@@ -6,11 +6,11 @@ use warnings;
 use NEXT;
 use Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj;
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 NAME
 
-Catalyst::Plugin::DBIC::Schema::Proflier - Profile time query took with DBIC::Schema in your Catalyst application.
+Catalyst::Plugin::DBIC::Schema::Profiler - Profile time query took with DBIC::Schema in your Catalyst application.
 
 =head1 SYNOPSIS
 
