@@ -1,12 +1,14 @@
 package Catalyst::Plugin::DBIC::Schema::Profiler;
 
+# $Id: Profiler.pm 3 2007-01-24 07:46:31Z ryuzo.yamamoto $
+
 use strict;
 use warnings;
 
 use NEXT;
 use Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 NAME
 
@@ -29,7 +31,7 @@ Catalyst::Plugin::DBIC::Schema::Profiler - Profile time query took with DBIC::Sc
 
 =head1 DESCRIPTION
 
-  ...
+  This plugin is only active in -Debug mode.
 
 =cut
 
@@ -40,12 +42,14 @@ sub prepare {
     my $model_name = $c->config->{'DBIC::Schema::Profiler'}->{MODEL_NAME}
         || return $c;
 
-    $c->model($model_name)->storage->debug(1);
-    $c->model($model_name)->storage->debugobj(
-        Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj->new(
-            log => $c->log
-        )
-    );
+    if ($c->debug) {
+        $c->model($model_name)->storage->debug(1);
+        $c->model($model_name)->storage->debugobj(
+            Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj->new(
+                log => $c->log
+            )
+            );
+    }
 
     return $c;
 }
