@@ -1,6 +1,6 @@
 package Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj;
 
-# $Id: DebugObj.pm 3 2007-01-24 07:46:31Z ryuzo.yamamoto $
+# $Id$
 
 use strict;
 use warnings;

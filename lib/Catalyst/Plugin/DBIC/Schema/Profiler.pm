@@ -1,6 +1,6 @@
 package Catalyst::Plugin::DBIC::Schema::Profiler;
 
-# $Id: Profiler.pm 3 2007-01-24 07:46:31Z ryuzo.yamamoto $
+# $Id$
 
 use strict;
 use warnings;
@@ -8,7 +8,7 @@ use warnings;
 use NEXT;
 use Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 =head1 NAME
 
@@ -40,15 +40,15 @@ sub prepare {
     $c = $c->NEXT::prepare(@_);
 
     my $model_name = $c->config->{'DBIC::Schema::Profiler'}->{MODEL_NAME}
-        || return $c;
+      || return $c;
 
-    if ($c->debug) {
-        $c->model($model_name)->storage->debug(1);
-        $c->model($model_name)->storage->debugobj(
+    if ( $c->debug ) {
+        $c->model($model_name)->schema->storage->debug(1);
+        $c->model($model_name)->schema->storage->debugobj(
             Catalyst::Plugin::DBIC::Schema::Profiler::DebugObj->new(
                 log => $c->log
             )
-            );
+        );
     }
 
     return $c;
@@ -64,7 +64,7 @@ L<Catalyst::Plugin::DBIC::Profiler>, L<Catalyst>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright (C) 2006 by Yamamoto Ryuzo
+Copyright (C) 2006-2010 by Yamamoto Ryuzo
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.8 or,
